@@ -1,0 +1,33 @@
+body{
+	font-family: "Regular", sans-serif;
+	background: #3c4143;
+	
+}
+
+
+ul, body, li{
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	list-style: none;
+}
+
+
+
+
+/*функциональные классы*/
+#add_to_blank{
+	border: 2px solid blue;
+	visibility: hidden;
+}
+
+.none{
+	display: none!important;
+}
+
+.flex{
+	display: flex;
+	align-items: center;
+}

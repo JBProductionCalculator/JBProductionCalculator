@@ -1,0 +1,430 @@
+//изменяется в файле addToBlank.js .важная переменная для подсчета количестав всех добавленых товаров во всех таблицах и добавления уникальных data
+// элементов для товаров чтобы их можно было удалять с doc таблицы
+// let allAddedProduct = 0
+
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+// функция добаления стоимости к цвету
+function selectedColorSystem(type, colorInputs, parentSection) {
+	let price
+
+	colorInputs.forEach(function(radio){
+		if (radio.checked && radio.value == 'Кор.') {
+			if (type == 'Compact' || type == 'фалш шторы' || type == 'MINI' || type == 'STANDART' ) {
+
+				if (parentSection == "#roller_curtains_day_night") {
+					price  = 2
+				}else{
+					price = 1
+				}
+
+			}else if (type == 'MAXIMUS') {
+				price = 0
+
+			}else if (type == 'UNI Плоскю Направл' ){
+
+				if (parentSection == "#roller_curtains_day_night") {
+					price  = 3
+				}else{
+					price = 2
+
+				}
+
+			}else if ( type == 'UNI П-обрю Направл') {
+
+				if (parentSection == "#roller_curtains_day_night") {
+					price  = 4
+				}else{
+					price =  3
+				}
+
+			}else{
+				price = 0
+			}
+		}else{
+			price = 0
+		}
+	})
+
+	return price
+}
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+// появление раздела выбра размера : СТД иди РГ для определенных типов ткани
+function viewSizeSystem(type,sizes, parentSection){
+	let sizeParentBlock = sizes[0].closest(parentSection+' .sizeSystem')
+		if (type == 'UNI Плоскю Направл' || type == 'UNI П-обрю Направл') {
+			sizeParentBlock.classList.add('none')
+		}else{
+			sizeParentBlock.classList.remove('none')
+		}
+	
+}
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночьы
+// показывает систему фиксации в нужных местах и возвращает цену
+function selectedFixationSystem(type, fixationSystemInputs, parentSection){
+	let price = 0
+	let fixationSystemParentBlock = fixationSystemInputs[0].closest('.fixationSystem')
+
+	if (type == 'фалш шторы'  || type == 'UNI Плоскю Направл' || type == 'UNI П-обрю Направл') {
+		fixationSystemParentBlock.classList.add('none')
+
+	}else{
+		fixationSystemParentBlock.classList.remove('none')
+	
+	    fixationSystemInputs.forEach(function(radio){
+	            if(radio.checked){
+	            	// первая таблица
+	                if (parentSection == "#roller_curtains") {        
+
+	                    if (radio.value == 'Магнитная'){
+	                        if (type == 'Compact' || type == 'MINI' || type == 'STANDART' || type == 'MAXIMUS') {
+	                             price = 0.9     
+	                        }
+
+	                    }
+	                    if (radio.value == 'Направляющая струна') {
+	                        if (type == 'Compact' || type == 'MINI' || type == 'STANDART') {
+	                             price = 0.9                        
+	                        } if(type == 'MAXIMUS' ){
+	                             price = 2.5     
+	                        } 
+
+	                    }
+
+	                }
+	            	// вторая таблица день-ночь
+	                if (parentSection == "#roller_curtains_day_night") {        
+
+	                    if (radio.value == 'Магнитная'){
+	                        if (type == 'Compact' || type == 'MINI' || type == 'STANDART' || type == 'MAXIMUS') {
+	                              price = 0.9     
+	                        }
+
+	                    }
+	                    if (radio.value == 'Направляющая струна') {
+	                        if (type == 'Compact' || type == 'MINI' || type == 'STANDART') {
+	                             price = 1.2                      
+	                        }if(type == 'MAXIMUS' ){
+	                           price = 3.0 
+	                        }   
+
+	                    }
+
+
+	                }
+
+	            }
+
+	        })
+
+	}
+
+	
+	return price
+
+}
+
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь, Готовые рулонные шторы
+// показывает Груз цепи при выборе нужных типов штор
+function selectedChainLoad(type, chainLoad){
+	let price = 0
+	let chainLoadParentBlock =  chainLoad[0].closest('.chainLoad')
+
+		if (type == 'фалш шторы' ) {
+			chainLoadParentBlock.classList.add('none')
+			price = 0
+		}else{
+			chainLoadParentBlock.classList.remove('none')
+			
+			chainLoad.forEach(function(radio){
+				if(radio.checked && radio.value == 'Груз цепи'){
+					price = 0.2					
+				}else{
+					price = 0
+				}
+			})	
+		}	
+		
+	return price
+}
+
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь, Готовые рулонные шторы
+// показывает Фиксация цепи при выборе нужных типов штор
+function selectedChainFixing(type, chainLoad){
+	let price = 0
+	let chainFixingParentBlock =  chainLoad[0].closest('.chainFixing')
+
+		if (type == 'фалш шторы' || type == 'STANDART' || type == 'MAXIMUS'   ) {
+			chainFixingParentBlock.classList.add('none')
+			price = 0
+
+		}else{
+			chainFixingParentBlock.classList.remove('none')
+
+			chainLoad.forEach(function(radio){
+				if(radio.checked && radio.value == 'Фикс. цепи'){
+					price = 0.2					
+				}else{
+					price = 0
+				}
+			})	
+		}
+
+	return price
+}
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь, Готовые рулонные шторы
+// показывает Фиксацич цепи универсальная при выборе нужных типов штор
+function selectedChainFixingUniversal(type, chainLoad){
+	let price = 0
+	let chainFixingUniversaParentBlock =  chainLoad[0].closest('.chainFixingUniversal')
+
+		if ( type == 'Compact' || type == 'фалш шторы' || type == 'MINI' || type == 'UNI Плоскю Направл' || type == 'UNI П-обрю Направл'   ) {
+			chainFixingUniversaParentBlock.classList.add('none')
+
+		}else{
+			chainFixingUniversaParentBlock.classList.remove('none')
+
+			chainLoad.forEach(function(radio){
+				if(radio.checked && radio.value == 'Фикс. цепи универс.'){
+					price = 0.2					
+				}else{
+					price = 0
+				}
+			})	
+		}
+
+	return price
+}
+
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+// Функция 1 Сособ Управления .для  STANDARD другие расценки
+function viewControlMethod(type, boxControlMethod, parentSection, thisIsSparta){
+
+	let controlMethod = document.querySelector(parentSection+' .controlMethod')
+	let controlMethodChanel = document.querySelector(parentSection+' .controlMethodChanel')
+
+
+	// console.log(controlMethod[0])
+	// controlMethod[0].setAttribute('selected', 'selected')
+
+	if (type == 'MINI' || type == 'UNI Плоскю Направл'|| type == 'UNI П-обрю Направл') {
+		boxControlMethod.classList.remove('none')
+		// priceControlMethodChanel(24,26,30)
+		viewChanelControlMethod(controlMethod,controlMethodChanel, parentSection, thisIsSparta)
+
+	}else if(type == 'STANDART'){
+		boxControlMethod.classList.remove('none')
+		viewChanelControlMethod(controlMethod,controlMethodChanel, parentSection, thisIsSparta)
+
+	}else{
+		boxControlMethod.classList.add('none')
+		let proxy  = 0
+	}
+	
+}
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+// Функция 2 Сособ Управления
+function viewChanelControlMethod(controlMethod, chanels, parent,thisIsSparta){
+	if (thisIsSparta == undefined) {
+		$(parent +' .controlMethod option:eq(0)').prop('selected',true)
+		$(parent +' .controlMethodChanel option:eq(0)').prop('selected',true)
+		chanels.classList.add('none')
+	}
+	
+
+	controlMethod.addEventListener('change', function(){
+		if(controlMethod.value == 'Мот.'){
+			chanels.classList.remove('none')
+		}else{
+			chanels.classList.add('none')
+
+		}
+	})
+	
+}
+
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+//// Функция 3 Сособ Управления .эта функция в вызывается прямо в каклькуляторе. она отдат цену
+function priceControlMethod(type,boxControlMethod){
+	let controlMethod = boxControlMethod.querySelector('.controlMethod')
+	let controlMethodChanel = boxControlMethod.querySelector('.controlMethodChanel')
+	let motorPrice = 85
+
+	let price = 0
+
+	if (type == 'MINI' || type == 'UNI Плоскю Направл'|| type == 'UNI П-обрю Направл') {
+		// price = chanelsPrices(24,26,30)
+		price = chanelsPrices(0,0,0)
+	}else if(type == 'STANDART'){
+		// price = chanelsPrices(50,60,70)
+		price = chanelsPrices(0,0,0)
+	}else{
+		price = 0
+	}
+
+
+	function chanelsPrices(fistPice, twoPrice, fivePrice){
+		if(controlMethod.value == 'Мотор'){
+
+			if (controlMethodChanel.value == '1 канал') {
+				return motorPrice + fistPice
+			}
+
+			if (controlMethodChanel.value == '2 канала') {
+				return motorPrice +  twoPrice
+			}
+
+			if (controlMethodChanel.value == '5 каналов') {
+				return motorPrice + fivePrice
+			}
+
+		}else{
+
+			return 0
+		}
+
+
+	}
+
+
+	return price
+}	
+
+
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+// добавление второй ширины для UNI Плоскю Направлю
+function viewEaxtraWidth(type,parentSection){
+	let mainWidthText = document.querySelector(parentSection+' .main_width span')
+	let glassWidth = document.querySelector(parentSection+' .glass_width')
+
+
+	if (type == "UNI Плоскю Направл") {
+		glassWidth.classList.remove('none')
+		mainWidthText.textContent = 'Ширина ребра, мм'
+	}else{
+		glassWidth.classList.add('none')
+		mainWidthText.textContent = 'Ширина, мм'
+	}
+
+}
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+//функуия 1 Доп. скотч . показ дополнительного скотча для типа UNI Плоскю Направл
+function viewAdditionalScotchTape(type, parentSection){
+	let additionalScotchTape = document.querySelector(parentSection + ' .additionalScotchTape')
+
+	if (type == "UNI Плоскю Направл") {
+		additionalScotchTape.classList.remove('none')
+	}else{
+		additionalScotchTape.classList.add('none')
+	}
+
+}
+
+// Используется в : Рулонные шторы, Руллоные шторы день-ночь
+//функуия 2 Доп сктч . эта функция в вызывается прямо в каклькуляторе. она отдат цену
+function priceAdditionalScotchTape(type, inputs, height){
+	
+	let price = 0
+	if (type == "UNI Плоскю Направл") {
+		inputs.forEach(function(radio){
+			if (radio.checked && radio.value == 'Доп. скотч') {
+				let converterToMeters = Number(height.value) / 1000
+				price = Math.ceil(converterToMeters) * 0.8
+				
+			}
+		})
+		
+	}else{
+		price = 0
+	}
+	
+	return price
+}
+	
+
+
+// Используется в : Горизонтальные жалюзи СТАНДАРТ
+// Пластиковые фикстаторы
+function selectedPlasticRetainer(plasticRetainer,parentSection ){
+	let price = 0
+	if(parentSection == "#horizontal_louver_standard" ){
+		plasticRetainer.forEach(function(radio){
+			if (radio.checked && radio.value == 'Пласт. Фиксатор') {
+				price = 0.3
+			}
+		})
+	}
+
+	return price
+}
+
+
+// Используется в : Горизонтальные жалюзи СТАНДАРТ
+//функция вызывается в калькуляторе. Добавление направляющей струны
+function selectedGuideString(area,guideString, parentSection){
+	let price = 0
+	if(parentSection == '#horizontal_louver_standard'){
+		guideString.forEach(function(radio){
+			if (radio.checked && radio.value == 'Напр. струна') {
+				price = Math.ceil(area) * 2.5
+			}
+		})
+	}
+
+	return price
+}
+
+
+
+function selectedFastening(width,fastening,idCalculate){
+	let price = 0
+
+	// console.log(fastening[0])
+	
+	fastening.forEach(function(radio){
+		// console.log(radio)
+		if (radio.checked) {
+			if (radio.value=='Потолочные') {
+				price = 0
+			}
+			if (radio.value=='Стеновые') {
+				price = addMount(width, 0.3)
+				
+			}
+
+			if (radio.value == 'Стеновые с удленителем') {
+				price = addMount(width, 0.6)
+				
+			}
+		}
+		
+
+	})
+
+	return price
+
+
+	function addMount(width,oneFastening){
+		let priceFastening = 0
+
+		if (width < 1700 ) {
+			priceFastening = oneFastening * 2
+		}else if(width >= 1700 && width < 2500){
+			priceFastening = oneFastening * 3
+		}else if(width >= 2500){
+			priceFastening = oneFastening * 4
+		}
+
+		return priceFastening
+	}
+}
