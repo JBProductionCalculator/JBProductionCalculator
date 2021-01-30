@@ -1,0 +1,122 @@
+.jobs_header{
+	padding: 150px 0 calc((var(--m-left) / 3) * 4) calc(100% / 6 + 20px);
+	border-bottom: 1px solid var(--white-border);
+}
+
+.jobs_content{
+	padding: var(--m-left) 0 calc(var(--m-left) / 3 * 2) calc(100% / 6 + 20px);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: baseline;
+}
+
+.jobs_content-item{
+	background: var(--white);
+	padding: calc((var(--m-left) /  3) * 2);
+	margin-right: calc((var(--m-left) /  3) * 2);
+	margin-bottom: calc(var(--m-left) * 3);
+
+}
+
+.jobs_content-item h3{
+	color: var(--black-background);
+}
+
+.jobs_content-item:nth-child(2n){
+	margin-right: var(--m-left);
+}
+
+.jobs_cart{
+}
+
+.jobs_cart-item{
+	display: flex;
+	padding: calc(var(--m-left) / 2) 0;
+	margin-right: calc(var(--m-left) / 2);
+	border-bottom: 1px solid var(--black);
+}
+
+.jobs_cart-item:last-child{
+	border-bottom: none;
+}
+
+.jobs_cart-item p:first-child{
+	flex: 3 5;
+	color: var(--black);
+}
+
+.jobs_cart-item p:last-child{
+	flex: 7 5;
+	color: var(--black);
+}
+
+
+
+.jobs_responsible div:first-child{
+	flex: 3 5;
+}
+
+.jobs_responsible div:first-child p{
+	white-space: nowrap;
+}
+
+/*.jobs_responsible div:nth-child(2){
+	flex: 2 5;
+}
+*/
+.jobs_responsible div:last-child {
+	flex: 7 7;
+	display: flex;
+	justify-content: space-between;
+}
+
+.jobs_responsible li{
+	display: flex;
+}
+
+.jobs_responsible li:first-child{
+	margin-bottom: calc(var(--m-left) / 3);
+}
+
+.jobs_responsible li img{
+	margin-right:calc(var(--m-left) / 3);
+	width: 18px;
+}
+
+
+
+
+@media screen and (max-width: 1200px){
+
+	.jobs_responsible div:last-child {
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+}
+
+
+@media screen and (max-width: 900px){
+	.jobs_cart-item p:first-child {
+	    flex: 4 5;
+	}
+
+	.jobs_responsible{
+		flex-direction: column;
+	}
+
+
+
+	.jobs_responsible div:first-child {
+	    margin-bottom: 10px;
+	}
+
+	.jobs_responsible div:last-child {
+		align-items: flex-start;
+	}
+
+	.jobs_responsible div:last-child li:first-child {
+	    margin-bottom: 10px;
+	}
+
+}

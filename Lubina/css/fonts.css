@@ -1,0 +1,22 @@
+@font-face{
+	font-family: Oswald;
+	src: url('../libs/fonts/Oswald/static/Oswald-Light.ttf');
+}
+
+@font-face{
+	font-family: Oswald-regular;
+	src: url('../libs/fonts/Oswald/static/Oswald-SemiBold.ttf');
+}
+
+
+
+@font-face{
+	font-family: Oswald-light;
+	src: url('../libs/fonts/Oswald/static/Oswald-Light.ttf');
+}
+
+
+@font-face{
+	font-family: Oswald-Bold;
+	src: url('../libs/fonts/Oswald/static/Oswald-Bold.ttf');
+}

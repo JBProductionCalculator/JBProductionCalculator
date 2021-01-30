@@ -1,0 +1,166 @@
+header{
+	position: fixed;
+	z-index: 500;
+	display: flex;
+	align-items: baseline;
+	width: 100%;
+	/*padding-top: var(--heedar-m-top);*/
+}
+header > div{
+	flex: 1;
+}
+
+
+/*menu*/
+nav.menu{
+	background: var(--white);
+	margin-left: var(--m-left);
+	margin-right: 1px;
+	width: auto;
+	padding:0 10px;
+
+}
+
+.menu_header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.menu_current{
+	text-transform: uppercase;
+	font-size: 13px;
+	padding: 10px 0;
+}
+
+.menu_icon img{
+	margin-left: 10px;
+}
+
+.menu_body{
+	background: var(--white);
+	padding-bottom: 1px;
+}
+
+.menu_body li{
+	position: relative;
+	text-transform: uppercase;
+	/*margin-bottom: 20px;*/
+	padding: calc(var(--m-left) / 3) 0;
+	font-size: var(--small-text);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.menu_body li:first-child img{
+	transform: rotate(180deg);
+	cursor: pointer;
+}
+
+
+.menu_body li a{
+	flex: 1;
+	z-index: 20;
+	position: relative;
+}
+
+.sel_men_item, .menu_current{
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.sel_men_item:before, .menu_current:before{
+	content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    margin-right: 7px;
+    margin-bottom: 2px;
+    /* display: block; */
+}
+
+.sel_men_item  a, .menu_current {
+	color: var(--orange);
+}
+
+
+/*языки*/
+.languages ul{
+	display: flex;
+	justify-content: center;
+}
+.languages li{
+	text-transform: uppercase;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+
+.logo{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: var(--gray);
+}
+
+
+
+.logo .loga_name{
+	font-family:  Oswald-Bold;
+	font-weight: 600;
+	font-size: 35px;
+}
+
+.logo p{
+	font-size: 15px;
+    margin-top: -5px;
+    color: var(--orange);
+}
+
+.logo_line {
+	display: flex;
+	justify-content: center;
+}
+
+.logo_line >div{
+	width: 96%;
+	margin-top: -2px;
+	height: 2px;
+	background: var(--gray);
+}
+
+.reception {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+
+
+.reception p{
+	/*font-size: var(--small-text);*/
+	font-size: 14px;
+	color: var(--white);	
+}
+
+.reception_logo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 35px;
+	height: 35px;
+	border:1px solid var(--white);
+	border-radius: 50%;
+	margin: 0 var(--m-right) 0 10px;
+	cursor: pointer;
+}
+
+.reception_logo img{
+	width: 13px;
+}
+
+
