@@ -1,0 +1,55 @@
+.c-show{
+	animation: showCart .6s ease forwards;
+}
+
+.c-shadow{
+	animation: shadowCart .6s ease forwards;
+}
+
+@keyframes showCart{
+	from{
+		right: calc((var(--cart_width) + calc(var(--indent) * 2)) * -1);
+	}
+	to{
+		right: 0;
+	}
+}
+
+@keyframes shadowCart{
+	from{
+		right: 0;
+	}
+	to{
+		right: calc((var(--cart_width) + calc(var(--indent) * 2)) * -1);
+	}
+}
+
+
+
+
+.p-show{
+	animation: showPopUp .5s ease forwards;
+}
+
+.p-shadow{
+	animation: shadowPopUp .5s ease forwards;
+}
+
+
+@keyframes showPopUp{
+	from{
+		top: -100vh;
+	}
+	to{
+		top: 0;
+	}
+}
+
+@keyframes shadowPopUp{
+	from{
+		top: 0;
+	}
+	to{
+		top: -100vh;
+	}
+}
