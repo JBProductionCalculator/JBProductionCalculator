@@ -597,6 +597,10 @@
         /* padding-right: var(--indent); */
         /* bottom: 0; */
     }
+	
+.home_slider{
+	overflow-x: clip;
+}
 
     .home_slider-decoration {
         position: absolute;
@@ -605,10 +609,7 @@
         width: 100%;
         left: 0;
         margin: 0 auto;
-          -webkit-overflow-x: clip;
-        -o-overflow-x: clip;
-        -moz-overflow-x: clip;
-        -ms-overflow-x: clip;
+     
         overflow-x: clip;
 }
 	
