@@ -1,0 +1,16 @@
+.heading_underline{
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 4px solid;
+	line-height: calc(var(--heading) - 15px);
+  	font-size: var(--heading);
+  	text-transform: uppercase;
+	margin-bottom: 10px;
+	font-weight: 900;
+	
+  	color: var(--black);
+	margin-right: var(--indent);
+	margin: 0;
+ }	
+
+

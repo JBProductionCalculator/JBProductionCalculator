@@ -1,0 +1,19 @@
+.heading {
+  color: var(--black);
+  font-size: var(--heading);
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.heading > p{
+	margin: 0;
+}
+
+
+@media screen and (max-width: 768px){
+	.heading > p {
+	    line-height: calc(var(--heading) + 2vw);
+	}
+
+}
