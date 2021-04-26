@@ -568,6 +568,9 @@
 @media screen and (max-width: 768px){
     .home {
         margin-bottom: 15vw;
+	padding-top: calc(var(--satar_size) / 2);
+	overflow-x: hidden;
+	   
     }
 
     .home_slide-container {
@@ -598,13 +601,6 @@
         /* bottom: 0; */
     }
 
-	.home{
-	overflow-x: clip;
-}
-	
-.home_slider{
-	overflow-x: clip;
-}
 
     .home_slider-decoration {
         position: absolute;
@@ -613,12 +609,11 @@
         width: 100%;
         left: 0;
         margin: 0 auto;
-     
-        overflow-x: clip;
+    
 }
 	
     .home_slider-decoration .star_background {
-        top: -14vw;
+        top: 3vw;
         right: -24vw;
         left: auto;
         width: 77vw;
