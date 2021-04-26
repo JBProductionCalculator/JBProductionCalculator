@@ -605,9 +605,13 @@
         width: 100%;
         left: 0;
         margin: 0 auto;
-        overflow-x: hidden;
-    }
-
+          -webkit-overflow-x: clip;
+        -o-overflow-x: clip;
+        -moz-overflow-x: clip;
+        -ms-overflow-x: clip;
+        overflow-x: clip;
+}
+	
     .home_slider-decoration .star_background {
         top: -14vw;
         right: -24vw;
